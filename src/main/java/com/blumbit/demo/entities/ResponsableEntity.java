@@ -1,5 +1,7 @@
 package com.blumbit.demo.entities;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

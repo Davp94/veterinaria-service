@@ -27,7 +27,7 @@ public class MascotaEntity {
     @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ClasificacionEntity clasificacion;
     
-    @ManyToMany(mappedBy = "mascota_entity")
+    @ManyToMany(mappedBy = "mascota")
     private List<ResponsableEntity> responsable;
 
     private Short usuario_creacion;

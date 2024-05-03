@@ -1,10 +1,16 @@
 package com.blumbit.demo.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class UsuarioEntity {
 
     @Id
@@ -19,5 +25,8 @@ public class UsuarioEntity {
 
     @Column(name = "usu_password")
     private String password;
+
+    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private RolEntity rol;
 
 }

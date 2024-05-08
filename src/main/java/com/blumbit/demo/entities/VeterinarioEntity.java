@@ -1,6 +1,8 @@
 package com.blumbit.demo.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
@@ -8,6 +10,7 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 public class VeterinarioEntity extends UsuarioEntity{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Short id;
 
     private String matricula;

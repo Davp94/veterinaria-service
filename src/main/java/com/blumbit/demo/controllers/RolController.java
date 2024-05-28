@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/rol")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RolController {
 
     // @Autowired

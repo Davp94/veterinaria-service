@@ -1,6 +1,7 @@
 package com.blumbit.demo.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -12,8 +13,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class MascotaEntity {
 
     @Id
@@ -30,8 +36,8 @@ public class MascotaEntity {
     @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ClasificacionEntity clasificacion;
     
-    @ManyToMany(mappedBy = "mascota")
-    private List<ResponsableEntity> responsable;
+    // @ManyToMany(mappedBy = "mascota")
+    // private List<ResponsableEntity> responsable;
 
     private Short usuario_creacion;
     
@@ -39,9 +45,14 @@ public class MascotaEntity {
 
     private Short usuario_baja;
 
-    private LocalDate fecha_creacion;
+    private LocalDateTime fecha_creacion;
 
-    private LocalDate fecha_modificacion;
+    private LocalDateTime fecha_modificacion;
 
-    private LocalDate fecha_baja;
+    private LocalDateTime fecha_baja;
+
+    @PrePersist
+    private void addFechaCreacion(){
+        this.fecha_creacion = LocalDateTime.now();
+    }
 }

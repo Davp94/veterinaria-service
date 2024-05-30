@@ -18,12 +18,12 @@ public class ResponsableEntity extends UsuarioEntity{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Short id;
 
-    @JoinTable(
-        name = "responsable_mascota",
-        joinColumns = @JoinColumn(name="responsable_id", nullable=false),
-        inverseJoinColumns = @JoinColumn(name="mascota_id", nullable = false)
-    )
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<MascotaEntity> mascota;
+    // @JoinTable(
+    //     name = "responsable_mascota",
+    //     joinColumns = @JoinColumn(name="responsable_id", nullable=false),
+    //     inverseJoinColumns = @JoinColumn(name="mascota_id", nullable = false)
+    // )
+    // @ManyToMany(cascade = CascadeType.ALL)
+    // private List<MascotaEntity> mascota;
 
 }

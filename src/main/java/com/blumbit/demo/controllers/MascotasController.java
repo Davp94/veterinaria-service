@@ -10,6 +10,8 @@ import com.blumbit.demo.dtos.GetMascotasDto;
 import com.blumbit.demo.entities.MascotaEntity;
 import com.blumbit.demo.services.IMascotasService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/mascotas")
 public class MascotasController {
@@ -21,7 +23,7 @@ public class MascotasController {
     }
 
     @GetMapping
-    public Page<MascotaEntity> findAllMascotas(@RequestParam int page, @RequestParam int size, @RequestParam String sortParam,
+    public Page<MascotaEntity> findAllMascotas(@RequestParam @Valid int page, @RequestParam int size, @RequestParam String sortParam,
     @RequestParam int order, @RequestParam String nombre){
         return this.mascotasService.findByNombreContainingIgnoreCase(new GetMascotasDto(page, size, sortParam, order, nombre));
     }

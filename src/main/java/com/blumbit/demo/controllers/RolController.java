@@ -19,6 +19,8 @@ import com.blumbit.demo.entities.RolEntity;
 import com.blumbit.demo.repository.RolRepository;
 import com.blumbit.demo.services.IRolService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -47,7 +49,7 @@ public class RolController {
     }
 
     @PostMapping()
-    public RolDto createRol(@RequestBody CreateRolDto rol){
+    public RolDto createRol(@Valid @RequestBody CreateRolDto rol){
         return this.rolService.createRol(rol);
     }
 

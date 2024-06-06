@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,7 +35,11 @@ public class MascotaEntity {
     @Column(name = "mas_tipo")
     private String tipo;
 
+    @Column(name = "mas_imagen")
+    private String imagen;
+
     @ManyToOne(optional = true, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private ClasificacionEntity clasificacion;
     
     // @ManyToMany(mappedBy = "mascota")

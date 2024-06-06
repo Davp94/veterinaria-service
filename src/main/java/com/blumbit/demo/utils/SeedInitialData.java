@@ -81,22 +81,27 @@ public class SeedInitialData implements CommandLineRunner{
         mascota1.setNombre("firulais");
         mascota1.setTipo("cooker");
         mascota1.setClasificacion(clasificacionesCreated.getFirst());
+        mascota1.setImagen("dog1.jpeg");
         MascotaEntity mascota2 = new MascotaEntity();
         mascota2.setNombre("lupita");
         mascota2.setTipo("salchicha");
         mascota2.setClasificacion(clasificacionesCreated.get(2));
+        mascota2.setImagen("dog2.jpeg");
         MascotaEntity mascota3 = new MascotaEntity();
         mascota3.setNombre("slinky");
         mascota3.setTipo("terrier");
         mascota3.setClasificacion(clasificacionesCreated.get(3));
+        mascota3.setImagen("dog3.jpg");
         MascotaEntity mascota4 = new MascotaEntity();
         mascota4.setNombre("teka");
         mascota4.setTipo("labrador");
         mascota4.setClasificacion(clasificacionesCreated.get(0));
+        mascota4.setImagen("dog4.jpeg");
         MascotaEntity mascota5 = new MascotaEntity();
         mascota5.setNombre("boby");
         mascota5.setTipo("Pastor aleman");
         mascota5.setClasificacion(clasificacionesCreated.getLast());
+        mascota5.setImagen("dog5.jpg");
         this.mascotasOperationRepository.saveAll(List.of(mascota1, mascota2, mascota3, mascota4, mascota5));
     }
 

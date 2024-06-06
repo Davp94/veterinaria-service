@@ -29,6 +29,7 @@ public class SecurityConfig {
             request
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/password/recovery").permitAll()
+                .requestMatchers(HttpMethod.GET, "/images/*").permitAll()
                 .anyRequest()
                 .authenticated();
         })

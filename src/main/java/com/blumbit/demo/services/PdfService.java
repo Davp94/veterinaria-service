@@ -60,8 +60,6 @@ public class PdfService {
         OutputStream outputStream = new FileOutputStream(file);
         ITextRenderer renderer = new ITextRenderer();
         renderer.setDocumentFromString(xhtml, new ClassPathResource("/css/").getURL().toExternalForm());
-        renderer.getSharedContext().setPrint(true);
-        renderer.getWriter().setPageSize(PageSize.LETTER);
         renderer.layout();
         renderer.createPDF(outputStream);
         outputStream.close();

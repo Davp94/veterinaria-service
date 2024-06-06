@@ -33,7 +33,7 @@ public class MascotaEntity {
     @Column(name = "mas_tipo")
     private String tipo;
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private ClasificacionEntity clasificacion;
     
     // @ManyToMany(mappedBy = "mascota")

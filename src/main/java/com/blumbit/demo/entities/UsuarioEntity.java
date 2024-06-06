@@ -33,7 +33,7 @@ public class UsuarioEntity {
     @Column(name = "usu_password")
     private String password;
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private RolEntity rol;
 
 }

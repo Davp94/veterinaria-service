@@ -14,9 +14,11 @@ import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.w3c.dom.Document;
 import org.w3c.tidy.Tidy;
+import org.xhtmlrenderer.layout.SharedContext;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.blumbit.demo.dtos.RolDto;
+import com.lowagie.text.PageSize;
 
 @Service
 public class PdfService {
@@ -58,6 +60,8 @@ public class PdfService {
         OutputStream outputStream = new FileOutputStream(file);
         ITextRenderer renderer = new ITextRenderer();
         renderer.setDocumentFromString(xhtml, new ClassPathResource("/css/").getURL().toExternalForm());
+        renderer.getSharedContext().setPrint(true);
+        renderer.getWriter().setPageSize(PageSize.LETTER);
         renderer.layout();
         renderer.createPDF(outputStream);
         outputStream.close();
